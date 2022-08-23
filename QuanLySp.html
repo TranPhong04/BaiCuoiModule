@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Create Sản Phẩm</h1>
+<table>
+  <tr>
+    <td>Name:</td>
+    <td><input placeholder="Nhập name" id="name"></td>
+  </tr>
+  <tr>
+    <td>Image:</td>
+    <td><input placeholder="Nhập image" id="img"></td>
+  </tr>
+  <tr>
+    <td>Price:</td>
+    <td><input placeholder="Nhập Price" id="price"></td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <button onclick="create()">Create</button>
+    </td>
+  </tr>
+</table>
+
+<h1>Danh sách sản phẩm</h1>
+<table border="1">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Image</th>
+    <th>Price</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  </thead>
+  <tbody id="show">
+
+  </tbody>
+</table>
+</body>
+</html>
+<script>
+  let indexEdit=-1;
+  let products = [
+    ["oto", "https://autopro8.mediacdn.vn/2020/8/30/photo-1-1598770695329180553093.jpg", 10000],
+    ["moto", "https://vnn-imgs-f.vgcloud.vn/2019/11/11/19/nhung-sieu-moto-dat-nhat-the-gioi-cao-nhat-gia-1-trieu-usd.jpg", 5000]
+  ]
+
+  show();
+
+  function show() {
+    let str = "";
+    for (let i = 0; i < products.length; i++) {
+      str += `
+              <tr>
+                <td>${products[i][0]}</td>
+                <td><img src="${products[i][1]}" width="200" height="150"></td>
+                <td>${products[i][2]}</td>
+                <td><button onclick="showEdit(${i})">Edit</button></td>
+                <td><button onclick="deleteProduct(${i})">Delete</button></td>
+            </tr>`
+    }
+    document.getElementById("show").innerHTML = str;
+  }
+
+
+  function create() {
+    let name = document.getElementById("name").value;
+    let img = document.getElementById("img").value;
+    let price = document.getElementById("price").value;
+if(indexEdit==-1) {
+    products.push([name, img, price]);
+    show();
+  }else{
+    products[indexEdit]=([name, img, price])}
+show()
+  }
+
+  function deleteProduct(index) {
+    products.splice(index,1);
+    show();
+  }
+  function showEdit(index){
+    indexEdit=index;
+    let name = document.getElementById("name").value=products[index][0];
+    let img = document.getElementById("img").value=products[index][1];
+    let price = document.getElementById("price").value=products[index][2];
+  }
+</script>
