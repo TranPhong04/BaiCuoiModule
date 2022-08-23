@@ -20,9 +20,16 @@
                     array[j]=arr[j]
                 }
                 else{
-                    array[index]=num;
-                    arr[index]=num;
-
+                   for(let j=0;j<arr.length+1;j++){
+                if(j==index){
+                    array[j]=num;
+                }
+                else{if(j<index){
+                   array[j]=arr[j]
+                }else {
+                    if (j > index)
+                        array[j] = arr[j-1]
+                }
                 }
             }
             return array;
