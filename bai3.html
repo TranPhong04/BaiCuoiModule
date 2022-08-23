@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let x=parseInt(prompt("Enter a NUmber"))
+    function  sumOfListPrime(x){
+        let sum=2;
+        for(let i=3;i<=x;i++){
+            let check=true;
+            for(let j=2;j<i;j++){
+                if(i%j==0){
+                    check=false;
+                    break;
+                }
+            }
+            if(check){
+                sum+=i;
+            }
+        }
+        return sum;
+    }
+    let kq=sumOfListPrime(x)
+ document.write(kq);
+</script>
+</body>
+</html>

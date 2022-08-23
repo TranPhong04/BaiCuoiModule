@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Number to Array!!</title>
+</head>
+<body>
+<script>
+    let num=parseInt(prompt("Enter a Number!!"));
+    let index=parseInt(prompt("Enter position!!"));
+    let arr=[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
+    function  insertNumberToArray(num,index,arr){
+
+        let array=[];
+        if(index<0&&index>arr.length){
+            return arr;
+        }else{
+            for(let j=0;j<arr.length+1;j++){
+                if(j!=index){
+                    array[j]=arr[j]
+                }
+                else{
+                    array[index]=num;
+                    arr[index]=num;
+
+                }
+            }
+            return array;
+        }
+
+
+    }
+    let kq=insertNumberToArray(num,index,arr)
+    document.write(kq)
+</script>
+</body>
+</html>
